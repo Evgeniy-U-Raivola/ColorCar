@@ -27,7 +27,16 @@ public class Design extends JPanel {
         GradientPaint fwindow=new GradientPaint(370,180,ferr1,400,80,ferr3);
         GradientPaint swindow=new GradientPaint(300,190,ferr1,320,60,ferr3);
         GradientPaint lamp=new GradientPaint(660,180,ferr4,650,145,Color.WHITE);
+        RadialGradientPaint shad=new RadialGradientPaint(424f,200f,310f,new float[] {0,1},new Color[]{Color.GRAY,Color.WHITE});
         //
+        //Тень
+        GeneralPath shadow=new GeneralPath();
+        shadow.moveTo(65,230);//1
+        shadow.quadTo(180,680,429,790);//2
+        shadow.quadTo(700,800,690,290);//3
+        shadow.closePath();
+        g5.setPaint(shad);
+        g5.fill(shadow);
         //подкрылки перед + зад
         g5.setStroke(pen1);
         GeneralPath pp=new GeneralPath();
@@ -260,6 +269,9 @@ public class Design extends JPanel {
         door.lineTo(278,300);//5
         door.quadTo(268,230,289,196);//6
         g5.draw(door);
+
+
+
 
         g5.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_OFF);//сглаживание
     }
